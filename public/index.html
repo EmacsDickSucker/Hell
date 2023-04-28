@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.terminal/2.35.3/js/jquery.terminal.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/jquery.terminal/2.35.3/css/jquery.terminal.min.css"
+        rel="stylesheet" />
+    <link href="./main.css" rel="stylesheet" />
+</head>
+
+<body style="margin: 0;">
+    <div id="term_demo"></div>
+    <div id="the_rest" style="display: none">
+        <!-- <div class="container" style="height: 100vh;"> -->
+        <!-- <div class="row justify-content-center col-md-6 col-lg-4"> -->
+        <form style="height: 100vh; display: flex; flex-direction: column; justify-content: space-around;">
+            <div class="form-group text-center" style="display: flex; justify-content: center;">
+                <label for="otp-input">Resurrection Stone</label>
+                <!-- <input type="text" id="otp-input" class="form-control text-center" maxlength="3"> -->
+            </div>
+            <div class="form-group text-center" style="display: flex; justify-content: center;">
+                <button type="submit" class="diamond-button"></button>
+            </div>
+            <div class="form-group text-center" style="display: flex; justify-content: center;">
+                <span id="hints">To release your friend, you must confess your sins</span>
+                <div class="blinking-cursor"></div>
+            </div>
+            <div class="form-group">
+                <div class="input-group" style="display: flex; justify-content: space-evenly ; align-items: center;">
+                    <input id="input_i" type="text" class="form-control otp-input" maxlength="1">
+                    <input id="input_8" type="text" class="form-control otp-input" maxlength="1">
+                    <input id="input_D" type="text" class="form-control otp-input" maxlength="1">
+                    <!-- <input type="text" class="form-control otp-input" maxlength="1">
+                      <input type="text" class="form-control otp-input" maxlength="1">
+                      <input type="text" class="form-control otp-input" maxlength="1"> -->
+                </div>
+            </div>
+        </form>
+        <!-- </div>
+            </div> -->
+    </div>
+    </div>
+</body>
+
+<script>
+    $(document).ready(function () {
+        $('#term_demo').terminal(function (command, term) {
+            if (command.startsWith('d ')) {
+                const shift = parseInt(command.split(' ')[1]);
+                const message = command.substring(command.indexOf(' ') + 1);
+                const decrypted = decryptCaesarCipher(message, shift);
+                if (decrypted == "8 help me") {
+                    term.echo(`You have defeated me, cretin`);
+                    let secondsLeft = 30;
+                    let dick_size = 0;
+                    let big_dick = [
+                        "⣿⣿⣿⣿⣿⣿⣿⣿⣿⠟⠛⢉⢉⠉⠉⠻⣿⣿⣿⣿⣿⣿",
+                        "⣿⣿⣿⣿⣿⣿⣿⠟⠠⡰⣕⣗⣷⣧⣀⣅⠘⣿⣿⣿⣿⣿",
+                        "⣿⣿⣿⣿⣿⣿⠃⣠⣳⣟⣿⣿⣷⣿⡿⣜⠄⣿⣿⣿⣿⣿",
+                        "⣿⣿⣿⣿⡿⠁⠄⣳⢷⣿⣿⣿⣿⡿⣝⠖⠄⣿⣿⣿⣿⣿",
+                        "⣿⣿⣿⣿⠃⠄⢢⡹⣿⢷⣯⢿⢷⡫⣗⠍⢰⣿⣿⣿⣿⣿",
+                        "⣿⣿⣿⡏⢀⢄⠤⣁⠋⠿⣗⣟⡯⡏⢎⠁⢸⣿⣿⣿⣿⣿",
+                        "⣿⣿⣿⠄⢔⢕⣯⣿⣿⡲⡤⡄⡤⠄⡀⢠⣿⣿⣿⣿⣿⣿",
+                        "⣿⣿⠇⠠⡳⣯⣿⣿⣾⢵⣫⢎⢎⠆⢀⣿⣿⣿⣿⣿⣿⣿",
+                        "⣿⣿⠄⢨⣫⣿⣿⡿⣿⣻⢎⡗⡕⡅⢸⣿⣿⣿⣿⣿⣿⣿",
+                        "⣿⣿⠄⢜⢾⣾⣿⣿⣟⣗⢯⡪⡳⡀⢸⣿⣿⣿⣿⣿⣿⣿",
+                        "⣿⣿⠄⢸⢽⣿⣷⣿⣻⡮⡧⡳⡱⡁⢸⣿⣿⣿⣿⣿⣿⣿",
+                        "⣿⣿⡄⢨⣻⣽⣿⣟⣿⣞⣗⡽⡸⡐⢸⣿⣿⣿⣿⣿⣿⣿",
+                        "⣿⣿⡇⢀⢗⣿⣿⣿⣿⡿⣞⡵⡣⣊⢸⣿⣿⣿⣿⣿⣿⣿",
+                        "⣿⣿⣿⡀⡣⣗⣿⣿⣿⣿⣯⡯⡺⣼⠎⣿⣿⣿⣿⣿⣿⣿",
+                        "⣿⣿⣿⣧⠐⡵⣻⣟⣯⣿⣷⣟⣝⢞⡿⢹⣿⣿⣿⣿⣿⣿",
+                        "⣿⣿⣿⣿⡆⢘⡺⣽⢿⣻⣿⣗⡷⣹⢩⢃⢿⣿⣿⣿⣿⣿",
+                        "⣿⣿⣿⣿⣷⠄⠪⣯⣟⣿⢯⣿⣻⣜⢎⢆⠜⣿⣿⣿⣿⣿",
+                        "⣿⣿⣿⣿⣿⡆⠄⢣⣻⣽⣿⣿⣟⣾⡮⡺⡸⠸⣿⣿⣿⣿",
+                        "⣿⣿⡿⠛⠉⠁⠄⢕⡳⣽⡾⣿⢽⣯⡿⣮⢚⣅⠹⣿⣿⣿",
+                        "⡿⠋⠄⠄⠄⠄⢀⠒⠝⣞⢿⡿⣿⣽⢿⡽⣧⣳⡅⠌⠻⣿",
+                        "⠁⠄⠄⠄⠄⠄⠐⡐⠱⡱⣻⡻⣝⣮⣟⣿⣻⣟⣻⡺⣊"
+                    ]
+                    const countdownTimer = setInterval(function () {
+                        if (secondsLeft > 0) {
+                            if (dick_size < 21) term.echo(`${big_dick[dick_size++]}`);
+                            secondsLeft--;
+                        } else {
+                            clearInterval(countdownTimer);
+                            console.log('Terminal destroyed');
+                            $("#term_demo").css({
+                                display: 'none'
+                            });
+                            $("#the_rest").css({
+                                display: 'inline-block'
+                            });
+                            term.destroy();
+                        }
+                    }, 1000);
+                } else {
+                    term.echo(`Thy code must be right, and thy heart must be pure. What beith the meaning of ${decrypted}`);
+                }
+            } else {
+                term.echo('Thy must find the code before thy can pass: "d c k"');
+            }
+        }, {
+            greetings: 'pmtx um',
+            name: 'caesar_cipher_decoder',
+            // height: 200,
+            prompt: '>',
+            enabled: true
+        });
+    });
+
+    function decryptCaesarCipher(message, shift) {
+        const alphabet = 'abcdefghijklmnopqrstuvwxyz';
+        let decrypted = '';
+
+        for (let i = 0; i < message.length; i++) {
+            const char = message.charAt(i);
+            const charIndex = alphabet.indexOf(char.toLowerCase());
+            if (charIndex !== -1) {
+                let newIndex = charIndex - shift;
+                if (newIndex < 0) {
+                    newIndex = alphabet.length + newIndex;
+                }
+                const decryptedChar = alphabet.charAt(newIndex);
+                decrypted += (char === char.toUpperCase()) ? decryptedChar.toUpperCase() : decryptedChar;
+            } else {
+                decrypted += char;
+            }
+        }
+
+        return decrypted;
+    }
+
+    $(document).ready(function () {
+
+        function validateOtp(otpValue) {
+            var input1 = document.getElementById("input_i").value;
+            var input2 = document.getElementById("input_8").value;
+            var input3 = document.getElementById("input_D").value;
+            var otp = input1 + input2 + input3;
+            if (otp === "i8D") {
+                alert("Thank you my friend. Reach out to me at emacsdicksucker@gmail.com");
+                // Perform further actions here
+            } else {
+                alert("AAAAA. IT HURTS! HELP!");
+            }
+            console.log(`Validating OTP: ${otpValue}`);
+        }
+
+        document.querySelector("form").addEventListener("submit", function (event) {
+            event.preventDefault();
+            validateOtp();
+        });
+    });
+</script>
+
+</html>

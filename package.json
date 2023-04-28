@@ -1,0 +1,26 @@
+{
+  "name": "hell",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EmacsDickSucker/Hell.git"
+  },
+  "author": "EmacsDickDucker",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/EmacsDickSucker/Hell/issues"
+  },
+  "homepage": "https://github.com/EmacsDickSucker/Hell#readme",
+  "dependencies": {
+    "bootstrap": "^5.2.3",
+    "jquery.terminal": "^2.35.3",
+    "koa": "^2.14.1",
+    "koa-static": "^5.0.0",
+    "nodemon": "^2.0.22"
+  }
+}

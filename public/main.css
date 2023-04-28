@@ -1,0 +1,126 @@
+div {
+    margin: 0;
+}
+
+#term_demo {
+    width: 100vw;
+    height: 100vh;
+    font-size: large;
+}
+
+#the_rest {
+    width: 100vw;
+    height: 100vh;
+    background-color: black;
+}
+
+.otp-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  label {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    color: white;
+    font-family: monospace;
+  }
+  
+  /* #otp-input {
+    display: none;
+  } */
+  
+  /* .otp-inputs {
+    display: flex;
+    justify-content: space-between;
+    width: 8rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    overflow: hidden;
+  } */
+  
+  .otp-inputs input {
+    width: 1.5rem;
+    height: 2rem;
+    font-size: 1.2rem;
+    text-align: center;
+    border: none;
+    outline: none;
+  }
+  
+  .otp-inputs input:focus {
+    border: none;
+    outline: none;
+  }
+
+  .otp-input {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+    border-radius: 0;
+    border: none;
+    border-bottom: 2px solid #ccc;
+    position: relative;
+    background-color: black;
+    color: white;
+    height: 100px;
+  }
+  
+  .otp-input:focus {
+    outline: none;
+    border-bottom-color: red;
+  }
+  
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  
+  input[type="number"] {
+    -moz-appearance: textfield;
+  }
+  
+  .blinking-cursor {
+    display: inline-block;
+    width: 2px;
+    height: 1em;
+    background-color: white;
+    animation: cursor 1s infinite;
+    margin-left: 5px;
+  }
+  
+  @keyframes cursor {
+    0% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  #hints {
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+      color: white;
+      font-family: monospace;
+  }
+
+  .diamond-button {
+    background-color: darkblue; /* Change this to your desired button color */
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    transform: rotate(45deg); /* Rotate the button to make it diamond-shaped */
+    width: 100px; /* Change this to your desired button width */
+    height: 100px; /* Change this to your desired button height */
+  }
